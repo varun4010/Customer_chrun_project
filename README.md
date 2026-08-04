@@ -1,1 +1,1 @@
-# Customer_chrun_project
+# Customer_churn_project
