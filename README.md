@@ -58,105 +58,11 @@ customerChurnPred/
 
 ---
 
-## 🚀 Getting Started
 
-### Prerequisites
-- **Python**: 3.9+ installed
-- **Node.js**: 18+ and `npm` installed
 
----
 
-### 1️⃣ Backend Setup (Django & ML Engine)
 
-1. **Navigate to the project root**:
-   ```bash
-   cd customerChurnPred
-   ```
 
-2. **Create and activate a Python virtual environment**:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate    # On macOS/Linux
-   # venv\Scripts\activate     # On Windows
-   ```
 
-3. **Install Python dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
 
-4. **Run database migrations**:
-   ```bash
-   cd backend
-   python manage.py migrate
-   ```
 
-5. **Train and Export the ML Model** *(Optional - Pre-trained model already saved)*:
-   To retrain the XGBoost model with Optuna optimization:
-   ```bash
-   PYTHONPATH=. python ml_engine/train_and_save.py
-   ```
-
-6. **Start the Django backend server**:
-   ```bash
-   python manage.py runserver 8000
-   ```
-   The backend server will run at: `http://127.0.0.1:8000/`
-
----
-
-### 2️⃣ Frontend Setup (React + Vite)
-
-1. **Open a new terminal window** and navigate to the frontend directory:
-   ```bash
-   cd customerChurnPred/frontend
-   ```
-
-2. **Install Node.js dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Start the Vite development server**:
-   ```bash
-   npm run dev
-   ```
-   The frontend application will run at: `http://localhost:5173/`
-
----
-
-## 🔌 API Endpoints Reference
-
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/health/` | Server & model loaded health check |
-| `POST` | `/api/predict/` | Predict churn probability for a single customer |
-| `POST` | `/api/batch-predict/` | Predict churn for multiple customer records |
-| `GET` | `/api/metadata/` | Fetch model performance metrics & threshold |
-| `GET` | `/api/decision-boundary/` | Retrieve decision boundary curve points for visual analytics |
-
-### Sample Single Prediction Request (`POST /api/predict/`)
-
-```json
-{
-  "CreditScore": 650,
-  "Geography": "France",
-  "Gender": "Female",
-  "Age": 42,
-  "Tenure": 5,
-  "Balance": 75000.0,
-  "NumOfProducts": 2,
-  "HasCrCard": 1,
-  "IsActiveMember": 0,
-  "EstimatedSalary": 105000.0,
-  "SatisfactionScore": 3,
-  "CardType": "DIAMOND",
-  "PointEarned": 450
-}
-```
-
----
-
-## 📜 License
-
-This project is open-source and available under the **MIT License**.
